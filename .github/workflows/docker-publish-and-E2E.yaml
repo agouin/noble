@@ -29,6 +29,8 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+        with:
+          buildkitd-flags: '--allow-insecure-entitlement network.host --addr  tcp://127.0.0.1:8125'
 
       - name: Log in to the Container registry
         uses: docker/login-action@v2
@@ -51,7 +53,7 @@ jobs:
           tag: ${{ steps.meta.outputs.tags }}
           registry: ${{ env.REGISTRY }}
           buildkit: true
-          buildkit-address: unix:///var/run/docker.sock
+          buildkit-address: tcp://127.0.0.1:8125
 
   test-tkn-factory:
     runs-on: ubuntu-latest
