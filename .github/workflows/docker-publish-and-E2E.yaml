@@ -44,16 +44,13 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
-        id: push
-        uses: docker/build-push-action@v3
+        id: build
+        uses: strangelove-ventures/heighliner-build-action@v0.0.1
         with:
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          chain: noble
+          tag: ${{ steps.meta.outputs.tags }}
+          registry: ${{ env.REGISTRY }}
+          buildkit: true
 
   test-tkn-factory:
     runs-on: ubuntu-latest
