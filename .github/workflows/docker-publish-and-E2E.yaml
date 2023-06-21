@@ -51,6 +51,7 @@ jobs:
           tag: ${{ steps.meta.outputs.tags }}
           registry: ${{ env.REGISTRY }}
           buildkit: true
+          buildkit-address: unix:///var/run/docker.sock
 
   test-tkn-factory:
     runs-on: ubuntu-latest
