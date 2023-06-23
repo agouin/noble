@@ -10,7 +10,7 @@ import (
 // will use the local image.
 func GetDockerImageInfo() (repo, version string) {
 	branchVersion, found := os.LookupEnv("BRANCH_CI")
-	repo = "ghcr.io/strangelove-ventures/noble"
+	repo = "ghcr.io/agouin/noble"
 	if !found {
 		repo = "noble"
 		branchVersion = "local"
