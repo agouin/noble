@@ -46,7 +46,7 @@ jobs:
         with:
           chain: noble
           tag: ${{ steps.meta.outputs.version }}
-          registry: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          registry: ${{ env.REGISTRY }}/${{ github.repository_owner }}
 
   test-tkn-factory:
     runs-on: ubuntu-latest
