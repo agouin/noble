@@ -47,6 +47,7 @@ jobs:
           chain: noble
           tag: ${{ steps.meta.outputs.version }}
           registry: ${{ env.REGISTRY }}/${{ github.repository_owner }}
+          platform: linux/amd64
 
   test-tkn-factory:
     runs-on: ubuntu-latest
