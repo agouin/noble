@@ -45,7 +45,7 @@ jobs:
         uses: strangelove-ventures/heighliner-build-action@v0.0.2
         with:
           chain: noble
-          tag: ${{ steps.meta.outputs.tags }}
+          tag: ${{ steps.meta.outputs.version }}
           registry: ${{ env.REGISTRY }}
           buildkit: true
 
