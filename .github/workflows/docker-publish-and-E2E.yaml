@@ -36,6 +36,10 @@ jobs:
         uses: strangelove-ventures/heighliner-build-action@v0.0.2
         with:
           chain: noble
+          dockerfile: cosmos
+          build-target: make install
+          binaries: |
+            - /go/bin/nobled
 
   test-tkn-factory:
     runs-on: ubuntu-latest
