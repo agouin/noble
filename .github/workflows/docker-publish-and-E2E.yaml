@@ -47,13 +47,12 @@ jobs:
 
       - name: Build and push Docker image
         id: build
-        uses: strangelove-ventures/heighliner-build-action@v0.0.1
+        uses: strangelove-ventures/heighliner-build-action@v0.0.2
         with:
           chain: noble
           tag: ${{ steps.meta.outputs.tags }}
           registry: ${{ env.REGISTRY }}
           buildkit: true
-          buildkit-address: tcp://127.0.0.1:8125
 
   test-tkn-factory:
     runs-on: ubuntu-latest
