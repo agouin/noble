@@ -31,19 +31,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
       - name: Build and push Docker image
         id: build
         uses: strangelove-ventures/heighliner-build-action@v0.0.2
         with:
           chain: noble
-          tag: ${{ steps.meta.outputs.version }}
-          registry: ${{ env.REGISTRY }}/${{ github.repository_owner }}
 
   test-tkn-factory:
     runs-on: ubuntu-latest
